@@ -1,0 +1,14 @@
+<main>
+    <h1>Productos</h1>
+    <input type="text" placeholder="Buscar por nombre" [formControl]="queryFC">
+    <ul>
+        <li *ngFor="let product of productsQuery.page$ | async">
+            {{product.name}} - {{product.price.toFixed(2)}}
+        </li>
+    </ul>
+    <p *ngIf="productsQuery.loading$ | async">
+        Cargando...
+    </p>
+    <button (click)="showMore()" [disabled]="(productsQuery.infiniteListShowMoreIsDisabled$ | async)">Mostrar
+        más</button>
+</main>
