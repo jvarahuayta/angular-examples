@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder } from '@angular/forms';
 import { debounceTime, tap } from 'rxjs/operators';
 
-import { ProductsQuery } from './core/stores/products/products.query';
 import { ProductsService } from './core/services/products.service';
+import { ProductsQuery } from './stores/products/products.query';
 
 const PAGE_SIZE = 20;
 

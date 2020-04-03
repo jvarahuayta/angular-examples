@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ProductsStore } from '../stores/products/products.store';
 import { ProductsApi } from '../api/products.api';
 import { tap } from 'rxjs/operators';
-import { ProductsQuery } from '../stores/products/products.query';
+import { ProductsStore } from '../../stores/products/products.store';
+import { ProductsQuery } from '../../stores/products/products.query';
 
 @Injectable({
   providedIn: 'root'

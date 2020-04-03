@@ -1,0 +1,10 @@
+<div>
+    <input type="text" placeholder="url" width="300" [(ngModel)]="url">
+    <button (click)="convert()">Convertir a File</button>
+</div>
+<hr>
+<h1>File preview:</h1>
+<code *ngIf="error">
+    Ocurrió un error: {{error}}
+</code>
+<img *ngIf="filePreviewUrl" [src]="domSanitizer.bypassSecurityTrustUrl(filePreviewUrl)" alt="">

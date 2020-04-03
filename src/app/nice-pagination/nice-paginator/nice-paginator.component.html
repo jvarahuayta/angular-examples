@@ -1,0 +1,36 @@
+<ul>
+    <li class="nav-to nav-to__first"><button (click)="handleFirstPage()" [disabled]="_currentPage <= 1"></button></li>
+    <li class="nav-to nav-to__previous"><button (click)="handlePreviousPage()" [disabled]="_currentPage <= 1"></button>
+    </li>
+    <li *ngFor="let page of startPagesArray" class="nav-to nav-to__page" [class.nav-to--active]="_currentPage === page">
+        <button (click)="handlePage(page)">
+            {{page}}
+        </button>
+    </li>
+    <ng-container *ngIf="showDots">
+        <li>
+            <ul class="dots-section">
+                <li class="dots" *ngIf="showLeftDots">
+                    <button>...</button>
+                </li>
+                <li class="nav-to nav-to__page nav-to--active" *ngIf="showPageBetween">
+                    <button>
+                        {{ _currentPage }}
+                    </button>
+                </li>
+                <li class="dots" *ngIf="showRightDots">
+                    <button>...</button>
+                </li>
+            </ul>
+        </li>
+    </ng-container>
+    <li *ngFor="let page of endPagesArray" class="nav-to nav-to__page" [class.nav-to--active]="_currentPage === page">
+        <button (click)="handlePage(page)">
+            {{ page }}
+        </button>
+    </li>
+    <li class="nav-to nav-to__next"><button (click)="handleNextPage()"
+            [disabled]="_currentPage >= _pagesQuantity"></button></li>
+    <li class="nav-to nav-to__last"><button (click)="handleLastPage()"
+            [disabled]="_currentPage >= _pagesQuantity"></button></li>
+</ul>

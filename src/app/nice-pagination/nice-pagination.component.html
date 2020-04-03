@@ -1,0 +1,19 @@
+<div>
+    <label for="currentPage">Página actual:</label>
+    <input id="currentPage" type="number" [(ngModel)]="currentPage">
+</div>
+<div>
+    <label for="pagesQuantity">Número de páginas</label>
+    <input id="pagesQuantity" type="number" [(ngModel)]="pagesQuantity">
+</div>
+<div>
+    <label for="startBounds">Límites en inicio</label>
+    <input id="startBounds" type="number" [(ngModel)]="startBounds">
+</div>
+<div>
+    <label for="endBounds">Límites al final</label>
+    <input id="endBounds" type="number" [(ngModel)]="endBounds">
+</div>
+<hr>
+<app-nice-paginator [currentPage]="currentPage" [pagesQuantity]="pagesQuantity" [startBounds]="startBounds"
+    [endBounds]="endBounds" (pageChange)="handlePageChange($event)"></app-nice-paginator>
