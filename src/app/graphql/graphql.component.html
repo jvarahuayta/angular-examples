@@ -1,0 +1,14 @@
+<ul>
+    <li *ngFor="let product of productsGraphQLQuery.products$ | async; trackBy: trackBy">
+        {{ product.name }} - S/ {{product.price}}
+        <div>
+            <img [src]="product.portraitUrl" alt="" width="200">
+        </div>
+        <button (click)="graphqlDemoService.loadProductDetail(product.id)">Cargar detalles</button>
+        <ul>
+            <li *ngFor="let imageUrl of product.imagesUrls">
+                <img [src]="imageUrl" alt="" width="150">
+            </li>
+        </ul>
+    </li>
+</ul>

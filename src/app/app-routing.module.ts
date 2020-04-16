@@ -21,6 +21,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./url-to-file/url-to-file.module').then(m => m.UrlToFileModule)
   },
+  { path: 'graphql', loadChildren: () => import('./graphql/graphql.module').then(m => m.GraphqlModule) },
   {
     path: '**',
     loadChildren: () =>
