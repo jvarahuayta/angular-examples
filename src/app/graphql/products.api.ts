@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { ProductsMapper } from './mappers/product.mapper';
 import { ID } from '@datorama/akita';
+import { getAuthContext } from '../lib/utils/graphql';
 
 const getProductsForGalleryQuery = gql`
   query {
@@ -37,6 +38,7 @@ export class ProductsApi {
     return this.apollo
       .query<{ productos: any[] }>({
         query: getProductsForGalleryQuery,
+        context: getAuthContext(),
       })
       .pipe(
         map(({ data }) =>
