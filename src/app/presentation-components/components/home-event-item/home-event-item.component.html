@@ -1,0 +1,10 @@
+<div class="home-event-item">
+    <div *ngIf="event$ | async as event; else loading">
+        {{event.title}}
+        <br>
+        <button (click)="buy.emit(event)">Comprar</button>
+    </div>
+</div>
+<ng-template #loading>
+    Cargando
+</ng-template>

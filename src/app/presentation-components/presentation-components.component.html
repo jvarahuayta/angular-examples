@@ -1,0 +1,18 @@
+<h1>Demo de presentation components</h1>
+<div *ngFor="let section of homeQuery.sections$ | async">
+    <header><b>{{section.title}}</b></header>
+    <div class="home__section__events-list">
+        <div class="home__section__event" *ngFor="let eventId of section.eventsIds">
+            <app-home-event-item [eventId]="eventId" (buy)="onEventBuy($event)"
+                (requestLoad)="onRequestLoadEvent($event)"></app-home-event-item>
+        </div>
+    </div>
+    <hr><br><br>
+</div>
+<h1>Lista de todos los eventos</h1>
+<ng-container [ngSwitch]="this.viewState$ | async">
+    <div *ngSwitchCase="'LOADING'">Cargando...</div>
+    <div *ngSwitchCase="'EMPTY'">Vacío...</div>
+    <div *ngSwitchCase="'LIST'">Hay elementos...</div>
+    <div *ngSwitchCase="'ERROR'">Hay errores...</div>
+</ng-container>
